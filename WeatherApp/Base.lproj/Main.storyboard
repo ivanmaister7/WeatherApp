@@ -19,40 +19,41 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijf-wp-7zF">
                                 <rect key="frame" x="0.0" y="103" width="393" height="280"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LHo-oK-VGh">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the city" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LHo-oK-VGh">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="42"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="KoD-Fc-es9"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="KoD-Fc-es9"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" systemColor="systemBackgroundColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFc-kz-sTh">
-                                        <rect key="frame" x="177.66666666666666" y="50" width="38" height="26.333333333333329"/>
+                                        <rect key="frame" x="177.66666666666666" y="58.000000000000007" width="38" height="26.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cloudy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWs-t2-Waz">
-                                        <rect key="frame" x="171" y="92.333333333333343" width="51" height="21"/>
+                                        <rect key="frame" x="171" y="100.33333333333334" width="51" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bem-li-wUR">
-                                        <rect key="frame" x="176.66666666666666" y="137.33333333333334" width="39.666666666666657" height="77.666666666666657"/>
+                                        <rect key="frame" x="176.66666666666666" y="145.33333333333334" width="39.666666666666657" height="77.666666666666657"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="65"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="o" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9z-E3-a5W">
-                                        <rect key="frame" x="224.33333333333334" y="147.33333333333334" width="14" height="30"/>
+                                        <rect key="frame" x="224.33333333333334" y="155.33333333333331" width="14" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.60922861350000002" green="0.81295972530000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="K9z-E3-a5W" firstAttribute="top" secondItem="RWs-t2-Waz" secondAttribute="bottom" constant="34" id="5Ek-4U-GdR"/>
                                     <constraint firstItem="Bem-li-wUR" firstAttribute="centerX" secondItem="ijf-wp-7zF" secondAttribute="centerX" id="5UN-kC-Oyl"/>
@@ -75,17 +76,19 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="175" id="Vk9-mq-CCR" customClass="ForecastViewCell" customModule="WeatherApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="175"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vk9-mq-CCR" id="wPA-e9-Q9m">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.69999999999999996" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vk9-mq-CCR" id="wPA-e9-Q9m">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="175"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6s-45-ES9">
                                                     <rect key="frame" x="167" y="72.666666666666671" width="59" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" systemColor="systemBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.60784313729999995" green="0.81295972530000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" red="0.60784313729999995" green="0.81295972530000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="J6s-45-ES9" firstAttribute="centerX" secondItem="wPA-e9-Q9m" secondAttribute="centerX" id="OGk-0s-hDr"/>
                                                 <constraint firstItem="J6s-45-ES9" firstAttribute="centerY" secondItem="wPA-e9-Q9m" secondAttribute="centerY" id="PVb-We-X2U"/>
@@ -101,7 +104,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.60922861350000002" green="0.81295972530000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ijf-wp-7zF" secondAttribute="trailing" id="7I3-cN-xwy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VIc-aV-FIV" secondAttribute="trailing" id="IzO-ey-zFC"/>
@@ -117,7 +120,9 @@
                         <outlet property="cityLabel" destination="eFc-kz-sTh" id="Cd8-qA-4Bb"/>
                         <outlet property="conditionLabel" destination="RWs-t2-Waz" id="OTn-9t-Llq"/>
                         <outlet property="forecastTable" destination="VIc-aV-FIV" id="EfR-pY-KAA"/>
+                        <outlet property="searchField" destination="LHo-oK-VGh" id="Ug3-fS-ST5"/>
                         <outlet property="temperatureLabel" destination="Bem-li-wUR" id="B7t-JH-2Dr"/>
+                        <outlet property="titleParentView" destination="ijf-wp-7zF" id="WvB-Mv-nNf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

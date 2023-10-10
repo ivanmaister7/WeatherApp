@@ -8,8 +8,7 @@
 import UIKit
 
 class ForecastViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var infoLabel: UILabel!
     
-
 }

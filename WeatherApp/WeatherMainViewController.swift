@@ -6,9 +6,29 @@
 //
 
 import UIKit
-import Alamofire
+import Combine
 
 struct WeatherResponce: Codable {
+    static var placeholder: Self {
+        if let savedData = UserDefaults.standard.data(forKey: "lastSessionWeatherData") {
+            if let loadedWeatherData = try? JSONDecoder().decode(WeatherResponce.self, from:savedData) {
+                return loadedWeatherData
+            }
+        }
+        return WeatherResponce(location:
+                            Location(name: "No location",
+                                     country: "No country",
+                                     lat: 0,
+                                     lon: 0),
+                        current: Current(temp_c: 0,
+                                         feelslike_c: 0,
+                                         wind_kph: 0,
+                                         condition: Condition(text: "-",
+                                                              icon: "",
+                                                              code: 0)),
+                        forecast: nil)
+    }
+    
     let location: Location
     let current: Current
     let forecast: Forecast?
@@ -62,16 +82,36 @@ struct Hour: Codable {
 struct Parameters: Codable {
     let q: String
     let key: String
-    var days = 1
+    var days: Int
+    
+    init(q: String, key: String, days: Int = 1) {
+        self.q = q
+        self.key = key
+        self.days = days
+    }
+}
+
+extension UITextField {
+    var textPublisher: AnyPublisher<String, Never> {
+        NotificationCenter.default
+            .publisher(for: UITextField.textDidChangeNotification, object: self)
+            .compactMap { $0.object as? UITextField }
+            .map { $0.text ?? "" }
+            .eraseToAnyPublisher()
+    }
 }
 
 class WeatherMainViewController: UIViewController {
+    @IBOutlet weak var searchField: UITextField!
     
+    @IBOutlet weak var titleParentView: UIView!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var conditionLabel: UILabel!
     @IBOutlet weak var forecastTable: UITableView!
     
+    private let vm = WeatherViewModel()
+    private var cancellableSet = Set<AnyCancellable>()
     var data: [Forecastday] = []
     
     override func viewDidLoad() {
@@ -80,30 +120,30 @@ class WeatherMainViewController: UIViewController {
         forecastTable.dataSource = self
         forecastTable.delegate = self
         
-        var params = Parameters(q: "London", key: "84aaefc410e74b45aa2101435230910")
-        AF
-            .request("https://api.weatherapi.com/v1/current.json",
-                     method: .get,
-                     parameters: params)
-            .responseDecodable(of: WeatherResponce.self) { responce in
-                if let data = responce.value {
-                    self.cityLabel.text = data.location.name
-                    self.conditionLabel.text = data.current.condition.text
-                    self.temperatureLabel.text = "\(Int(data.current.temp_c))"
-                }
-            }
-        params.days = 7
-        AF
-            .request("https://api.weatherapi.com/v1/forecast.json",
-                     method: .get,
-                     parameters: params)
-            .responseDecodable(of: WeatherResponce.self) { responce in
-                if let data = responce.value?.forecast?.forecastday {
-                    self.data = data
-                    print(data)
-                    self.forecastTable.reloadData()
-                }
-            }
+        forecastTable.backgroundColor = .clear
+        titleParentView.backgroundColor = .clear
+        searchField.alpha = 0.35
+        searchField.textColor = .gray
+        
+        searchField.textPublisher
+            .assign(to: \.city, on: vm)
+            .store(in: &cancellableSet)
+        
+        vm.$currentWeather
+            .sink(receiveValue: { [weak self] currentWeather in
+                guard let self else { return }
+                self.cityLabel.text = currentWeather.location.name
+                self.conditionLabel.text = currentWeather.current.condition.text
+                self.temperatureLabel.text = "\(Int(currentWeather.current.temp_c))"
+            })
+            .store(in: &cancellableSet)
+        vm.$currentForecast
+            .sink(receiveValue: { [weak self] currentForecast in
+                guard let self else { return }
+                self.data = currentForecast.forecast?.forecastday ?? []
+                self.forecastTable.reloadData()
+            })
+            .store(in: &cancellableSet)
     }
     
 }
@@ -115,6 +155,7 @@ extension WeatherMainViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath) as! ForecastViewCell
         cell.infoLabel.text = "\(data[indexPath.row].date) ± \(data[indexPath.row].day.avgtemp_c)"
+        
         return cell
     }
     

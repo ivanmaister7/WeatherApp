@@ -58,13 +58,33 @@ struct WeatherAppWidgetEntryView : View {
         ZStack {
             Color("skyColor")
             VStack(alignment: .leading) {
+                HStack {
+                    Text("\(Int(entry.weather.current.temp_c))°C")
+                        .font(.largeTitle)
+                    weatherImage(for: entry.weather.current.condition)
+                }
                 Text(entry.weather.location.name)
-                Text("\(Int(entry.weather.current.temp_c))°C")
-                    .font(.largeTitle)
                 Text(entry.weather.current.condition.text)
                     .font(.footnote)
-            }.padding()
+            }
+            .padding()
+            .foregroundColor(.white)
         }
+    }
+    
+    func weatherImage(for condition: Condition) -> some View {
+        var imageName = ""
+        switch condition.code {
+        case 1000:
+            imageName = "sun.max.fill"
+        case 1003:
+            imageName = "cloud.sun.fill"
+        case 1006:
+            imageName = "cloud.fill"
+        default:
+            imageName = "cloud.rain.fill"
+        }
+        return Image(systemName: imageName).renderingMode(.original).font(.largeTitle)
     }
 }
 

@@ -107,6 +107,7 @@ extension UITextField {
 class WeatherMainViewController: UIViewController {
     @IBOutlet weak var searchField: UITextField!
     
+    @IBOutlet weak var currentWeatherImage: UIImageView!
     @IBOutlet weak var titleParentView: UIView!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -125,8 +126,6 @@ class WeatherMainViewController: UIViewController {
         
         forecastTable.backgroundColor = .clear
         titleParentView.backgroundColor = .clear
-        searchField.alpha = 0.35
-        searchField.textColor = .gray
         forecastTable.keyboardDismissMode = .onDrag
         
         searchField.textPublisher
@@ -139,6 +138,10 @@ class WeatherMainViewController: UIViewController {
                 self.cityLabel.text = currentWeather.location.name
                 self.conditionLabel.text = currentWeather.current.condition.text
                 self.temperatureLabel.text = "\(Int(currentWeather.current.temp_c))"
+                
+                if let image = ForecastViewCell.weatherImage(for: currentWeather.current.condition) {
+                    self.currentWeatherImage.image = image
+                }
             })
             .store(in: &cancellableSet)
         vm.$currentForecast
@@ -168,7 +171,7 @@ extension WeatherMainViewController: UITableViewDataSource, UITableViewDelegate 
         if let indexPath = forecastTable.indexPathForSelectedRow{
             let selectedRow = indexPath.row
             let nextPost = segue.destination as! WeatherDetailsViewController
-            nextPost.info = "\(data[selectedRow].date) ± \(data[selectedRow].day.avgtemp_c)"
+            nextPost.forecast = data[selectedRow].day
         }
     }
 }

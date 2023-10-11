@@ -24,14 +24,14 @@ class ForecastViewCell: UITableViewCell {
                                                             from: data.date) ?? Date())
         self.dateLabel.text = "\(components.day ?? 0).\(components.month ?? 0)"
         self.windLabel.text    = "\(data.day.maxwind_kph)"
-        self.minTempLabel.text = "\(data.day.mintemp_c)"
-        self.maxTempLabel.text = "\(data.day.maxtemp_c)"
-        if let image = weatherImage(for: data.day.condition) {
+        self.minTempLabel.text = "\(Int(data.day.mintemp_c))"
+        self.maxTempLabel.text = "\(Int(data.day.maxtemp_c))"
+        if let image = ForecastViewCell.weatherImage(for: data.day.condition) {
             self.weatherImage.image = image
         }
     }
     
-    func weatherImage(for condition: Condition) -> UIImage? {
+    static func weatherImage(for condition: Condition) -> UIImage? {
         var imageName = ""
         switch condition.code {
         case 1000:

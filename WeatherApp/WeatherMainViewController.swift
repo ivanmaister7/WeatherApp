@@ -10,7 +10,8 @@ import Combine
 
 struct WeatherResponce: Codable {
     static var placeholder: Self {
-        if let savedData = UserDefaults.standard.data(forKey: "lastSessionWeatherData") {
+        if let storage = UserDefaults(suiteName: "group.ivanmaister.weatherapp"),
+           let savedData = storage.data(forKey: "lastSessionWeatherData") {
             if let loadedWeatherData = try? JSONDecoder().decode(WeatherResponce.self, from:savedData) {
                 return loadedWeatherData
             }

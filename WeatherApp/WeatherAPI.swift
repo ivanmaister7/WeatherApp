@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 import Combine
+import WidgetKit
 
 class WeatherAPI {
     static let shared = WeatherAPI()
@@ -35,9 +36,11 @@ class WeatherAPI {
             .validate()
             .publishDecodable(type: WeatherResponce.self)
             .compactMap { elem in
-                if let encoded = try? JSONEncoder().encode(elem.value) {
-                    UserDefaults.standard.set(encoded, forKey: "lastSessionWeatherData")
+                if let encoded = try? JSONEncoder().encode(elem.value),
+                let storage = UserDefaults(suiteName: "group.ivanmaister.weatherapp") {
+                    storage.set(encoded, forKey: "lastSessionWeatherData")
                 }
+                WidgetCenter.shared.reloadAllTimelines()
                 return elem.value
             }
             .receive(on: RunLoop.main)

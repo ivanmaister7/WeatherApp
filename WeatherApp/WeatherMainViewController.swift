@@ -16,8 +16,8 @@ struct WeatherResponce: Codable {
             }
         }
         return WeatherResponce(location:
-                            Location(name: "No location",
-                                     country: "No country",
+                            Location(name: NSLocalizedString("No location", comment: ""),
+                                     country: NSLocalizedString("No country", comment: ""),
                                      lat: 0,
                                      lon: 0),
                         current: Current(temp_c: 0,
@@ -83,11 +83,13 @@ struct Parameters: Codable {
     let q: String
     let key: String
     var days: Int
+    var lang: String
     
-    init(q: String, key: String, days: Int = 1) {
+    init(q: String, key: String, days: Int = 1, lang: String = "") {
         self.q = q
         self.key = key
         self.days = days
+        self.lang = lang
     }
 }
 
@@ -124,6 +126,7 @@ class WeatherMainViewController: UIViewController {
         titleParentView.backgroundColor = .clear
         searchField.alpha = 0.35
         searchField.textColor = .gray
+        forecastTable.keyboardDismissMode = .onDrag
         
         searchField.textPublisher
             .assign(to: \.city, on: vm)
@@ -154,7 +157,8 @@ extension WeatherMainViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath) as! ForecastViewCell
-        cell.infoLabel.text = "\(data[indexPath.row].date) ± \(data[indexPath.row].day.avgtemp_c)"
+        
+        cell.configureView(data: data[indexPath.row])
         
         return cell
     }

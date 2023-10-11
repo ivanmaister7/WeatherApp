@@ -13,15 +13,16 @@ class WeatherAPI {
     static let shared = WeatherAPI()
     let key = "84aaefc410e74b45aa2101435230910"
     let baseUrl = "https://api.weatherapi.com/v1/"
+    let lang = Locale.current.language.languageCode?.identifier ?? ""
     
     func fetchCurrentWeather(for city: String) -> AnyPublisher<WeatherResponce, Never> {
         print("Fetch data for: \(city)")
-        let parameters = Parameters(q: city, key: key)
+        let parameters = Parameters(q: city, key: key, lang: lang)
         return fetchData(from: baseUrl + "current.json", parameters: parameters)
     }
     
     func fetchForecast(for city: String) -> AnyPublisher<WeatherResponce, Never> {
-        let parameters = Parameters(q: city, key: key, days: 7)
+        let parameters = Parameters(q: city, key: key, days: 7, lang: lang)
         return fetchData(from: baseUrl + "forecast.json", parameters: parameters)
     }
     
@@ -43,9 +44,3 @@ class WeatherAPI {
             .eraseToAnyPublisher()
     }
 }
-
-//            .responseDecodable(of: ) { responce in
-//                if let data = responce.value {
-//                    responcePublisher = Just(data).eraseToAnyPublisher()
-//                }
-//            }

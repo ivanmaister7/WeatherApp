@@ -1,0 +1,30 @@
+
+/* Class = "UILabel"; text = "0"; ObjectID = "Bem-li-wUR"; */
+"Bem-li-wUR.text" = "0";
+
+/* Class = "UILabel"; text = "9"; ObjectID = "G6T-Fu-s30"; */
+"G6T-Fu-s30.text" = "9";
+
+/* Class = "UILabel"; text = "09.10"; ObjectID = "J6s-45-ES9"; */
+"J6s-45-ES9.text" = "09.10";
+
+/* Class = "UILabel"; text = "o"; ObjectID = "K9z-E3-a5W"; */
+"K9z-E3-a5W.text" = "o";
+
+/* Class = "UITextField"; placeholder = "Enter the city"; ObjectID = "LHo-oK-VGh"; */
+"LHo-oK-VGh.placeholder" = "Введіть місто";
+
+/* Class = "UILabel"; text = "cloudy"; ObjectID = "RWs-t2-Waz"; */
+"RWs-t2-Waz.text" = "Хмарно";
+
+/* Class = "UILabel"; text = "15"; ObjectID = "bT3-XF-Fqp"; */
+"bT3-XF-Fqp.text" = "15";
+
+/* Class = "UILabel"; text = "City"; ObjectID = "eFc-kz-sTh"; */
+"eFc-kz-sTh.text" = "Місто";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "fjM-zh-va8"; */
+"fjM-zh-va8.text" = "Інфо";
+
+/* Class = "UILabel"; text = "13.4"; ObjectID = "lyJ-2H-W4s"; */
+"lyJ-2H-W4s.text" = "13.4";

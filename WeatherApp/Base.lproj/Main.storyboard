@@ -73,16 +73,70 @@
                                 <rect key="frame" x="0.0" y="383" width="393" height="435"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="175" id="Vk9-mq-CCR" customClass="ForecastViewCell" customModule="WeatherApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="175"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="142" id="Vk9-mq-CCR" customClass="ForecastViewCell" customModule="WeatherApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="142"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.69999999999999996" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vk9-mq-CCR" id="wPA-e9-Q9m">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="175"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="142"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6s-45-ES9">
-                                                    <rect key="frame" x="167" y="72.666666666666671" width="59" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09.10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6s-45-ES9">
+                                                    <rect key="frame" x="20" y="59" width="49" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" systemColor="systemBackgroundColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bT3-XF-Fqp">
+                                                    <rect key="frame" x="335.33333333333331" y="56" width="27.666666666666686" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                                    <color key="textColor" systemColor="systemBackgroundColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thermometer.high" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="w2K-w5-StZ">
+                                                    <rect key="frame" x="363" y="58.666666666666657" width="25" height="25.333333333333343"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="enA-9G-hQl"/>
+                                                        <constraint firstAttribute="height" constant="25" id="sfa-sq-YP1"/>
+                                                    </constraints>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G6T-Fu-s30">
+                                                    <rect key="frame" x="272.33333333333331" y="56" width="15.666666666666686" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                                    <color key="textColor" systemColor="systemBackgroundColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thermometer.low" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2xg-Za-Ozg">
+                                                    <rect key="frame" x="288" y="58.666666666666657" width="25" height="25.333333333333343"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="Mnb-J7-6Tq"/>
+                                                        <constraint firstAttribute="height" constant="25" id="TWQ-hN-1KU"/>
+                                                    </constraints>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17"/>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud.rain.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8sI-Wi-sK4">
+                                                    <rect key="frame" x="214" y="58.333333333333329" width="25" height="26"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="Tpi-Ne-wg4"/>
+                                                        <constraint firstAttribute="height" constant="25" id="tzl-Bd-RhT"/>
+                                                    </constraints>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17"/>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wind" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Kxp-cr-T0W">
+                                                    <rect key="frame" x="165" y="28.666666666666664" width="25" height="64.666666666666686"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="cRR-aW-Zqh"/>
+                                                        <constraint firstAttribute="width" constant="25" id="toF-zA-Wcp"/>
+                                                    </constraints>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyJ-2H-W4s">
+                                                    <rect key="frame" x="161.33333333333334" y="47" width="28.666666666666657" height="68"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" systemColor="systemBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -90,13 +144,34 @@
                                             <color key="backgroundColor" red="0.60784313729999995" green="0.81295972530000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="tintColor" red="0.60784313729999995" green="0.81295972530000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstItem="J6s-45-ES9" firstAttribute="centerX" secondItem="wPA-e9-Q9m" secondAttribute="centerX" id="OGk-0s-hDr"/>
+                                                <constraint firstItem="Kxp-cr-T0W" firstAttribute="leading" secondItem="lyJ-2H-W4s" secondAttribute="trailing" constant="-25" id="1ok-cE-L40"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="bT3-XF-Fqp" secondAttribute="trailing" constant="10" id="47J-C7-ryO"/>
+                                                <constraint firstItem="8sI-Wi-sK4" firstAttribute="leading" secondItem="Kxp-cr-T0W" secondAttribute="trailing" constant="24" id="BcS-g6-2yF"/>
+                                                <constraint firstItem="8sI-Wi-sK4" firstAttribute="centerY" secondItem="wPA-e9-Q9m" secondAttribute="centerY" id="CbB-QL-QK3"/>
+                                                <constraint firstItem="2xg-Za-Ozg" firstAttribute="leading" secondItem="G6T-Fu-s30" secondAttribute="trailing" constant="5.6843418860808015e-14" id="JQL-2c-Yj5"/>
+                                                <constraint firstItem="G6T-Fu-s30" firstAttribute="centerY" secondItem="wPA-e9-Q9m" secondAttribute="centerY" id="KKz-eB-YGm"/>
+                                                <constraint firstItem="J6s-45-ES9" firstAttribute="leading" secondItem="wPA-e9-Q9m" secondAttribute="leadingMargin" id="MD7-7p-Nxm"/>
                                                 <constraint firstItem="J6s-45-ES9" firstAttribute="centerY" secondItem="wPA-e9-Q9m" secondAttribute="centerY" id="PVb-We-X2U"/>
+                                                <constraint firstItem="w2K-w5-StZ" firstAttribute="leading" secondItem="2xg-Za-Ozg" secondAttribute="trailing" constant="50" id="VVw-IE-g09"/>
+                                                <constraint firstItem="w2K-w5-StZ" firstAttribute="leading" secondItem="bT3-XF-Fqp" secondAttribute="trailing" id="VZf-uP-OhN"/>
+                                                <constraint firstItem="bT3-XF-Fqp" firstAttribute="centerY" secondItem="wPA-e9-Q9m" secondAttribute="centerY" id="XhF-eH-odv"/>
+                                                <constraint firstItem="w2K-w5-StZ" firstAttribute="centerY" secondItem="wPA-e9-Q9m" secondAttribute="centerY" id="Xtj-yD-Gfe"/>
+                                                <constraint firstItem="lyJ-2H-W4s" firstAttribute="centerY" secondItem="wPA-e9-Q9m" secondAttribute="centerY" constant="10" id="YA1-SE-1kH"/>
+                                                <constraint firstItem="2xg-Za-Ozg" firstAttribute="centerY" secondItem="wPA-e9-Q9m" secondAttribute="centerY" id="a2z-Do-Cen"/>
+                                                <constraint firstItem="2xg-Za-Ozg" firstAttribute="leading" secondItem="G6T-Fu-s30" secondAttribute="trailing" id="a6d-EJ-F8K"/>
+                                                <constraint firstItem="Kxp-cr-T0W" firstAttribute="leading" secondItem="J6s-45-ES9" secondAttribute="trailing" constant="96" id="m5y-zf-Qt6"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="lyJ-2H-W4s" secondAttribute="bottom" constant="16" id="tj8-d9-B3f"/>
+                                                <constraint firstItem="Kxp-cr-T0W" firstAttribute="top" secondItem="wPA-e9-Q9m" secondAttribute="topMargin" constant="16" id="wbX-ID-Ej4"/>
+                                                <constraint firstItem="Kxp-cr-T0W" firstAttribute="centerY" secondItem="wPA-e9-Q9m" secondAttribute="centerY" constant="-10" id="xle-te-cFb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="infoLabel" destination="J6s-45-ES9" id="cqF-W0-70e"/>
+                                            <outlet property="dateLabel" destination="J6s-45-ES9" id="zxB-H0-4Fi"/>
+                                            <outlet property="maxTempLabel" destination="bT3-XF-Fqp" id="sjB-4w-Cgr"/>
+                                            <outlet property="minTempLabel" destination="G6T-Fu-s30" id="M2e-ow-SqL"/>
                                             <outlet property="textLabel" destination="J6s-45-ES9" id="21C-Mi-hBy"/>
+                                            <outlet property="weatherImage" destination="8sI-Wi-sK4" id="fCh-a7-Zuy"/>
+                                            <outlet property="windLabel" destination="lyJ-2H-W4s" id="fFC-Oe-yfW"/>
                                             <segue destination="Wnx-LY-F6L" kind="show" id="luR-Yc-tsl"/>
                                         </connections>
                                     </tableViewCell>
@@ -180,6 +255,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cloud.rain.fill" catalog="system" width="126" height="128"/>
+        <image name="thermometer.high" catalog="system" width="80" height="128"/>
+        <image name="thermometer.low" catalog="system" width="80" height="128"/>
+        <image name="wind" catalog="system" width="128" height="103"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

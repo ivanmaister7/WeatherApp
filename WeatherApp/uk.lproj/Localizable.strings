@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  WeatherApp
+
+  Created by Master on 11.10.2023.
+  
+*/
+"No location" = "Не знайдено";
+"No country" = "Не знайдено";

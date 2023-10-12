@@ -21,9 +21,15 @@ struct Provider: IntentTimelineProvider {
     
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         let service = WeatherAppWidgetService()
+        let lang = Locale.preferredLanguages[0].prefix(2)
+        
+        // doesnt work corectly in widget extension
+        //let lang = Locale.current.language.languageCode?.identifier ?? ""
+        
         service.getCurrentWeather(from: "https://api.weatherapi.com/v1/current.json",
                                   parameters: Parameters(q: WeatherResponce.placeholder.location.name,
-                                                         lang: Locale.current.language.languageCode?.identifier ?? "")) { responce in
+                                                         key: WeatherAPI.key,
+                                                         lang: String(lang))) { responce in
             guard let data = responce.value else { return }
             var entries: [SimpleEntry] = []
             

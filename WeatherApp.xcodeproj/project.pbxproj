@@ -29,6 +29,9 @@
 		AF5591E62AD46DE7005A71C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5591E42AD46DE7005A71C6 /* Main.storyboard */; };
 		AF5591E82AD46DEC005A71C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF5591E72AD46DEC005A71C6 /* Assets.xcassets */; };
 		AF5591EB2AD46DEC005A71C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5591E92AD46DEC005A71C6 /* LaunchScreen.storyboard */; };
+		AFFF7D632AD8098E008C7891 /* WeatherResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF7D622AD8098E008C7891 /* WeatherResponce.swift */; };
+		AFFF7D642AD80BD5008C7891 /* WeatherResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFF7D622AD8098E008C7891 /* WeatherResponce.swift */; };
+		AFFF7D6A2AD8104E008C7891 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0D18452AD58461004BC9A7 /* WeatherAPI.swift */; };
 		DF74FBB2373640B82132F90F /* libPods-WeatherAppWidgetExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB859054BE45197459A07477 /* libPods-WeatherAppWidgetExtension.a */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +103,7 @@
 		AF5591EC2AD46DEC005A71C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF6CD5162AD6F48800EAD371 /* WeatherApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeatherApp.entitlements; sourceTree = "<group>"; };
 		AF6CD5172AD6F4AE00EAD371 /* WeatherAppWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeatherAppWidgetExtension.entitlements; sourceTree = "<group>"; };
+		AFFF7D622AD8098E008C7891 /* WeatherResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponce.swift; sourceTree = "<group>"; };
 		DB859054BE45197459A07477 /* libPods-WeatherAppWidgetExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherAppWidgetExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -139,8 +143,8 @@
 		AF2F97462AD6D3C500A80CFE /* WeatherAppWidget */ = {
 			isa = PBXGroup;
 			children = (
+				AFFF7D602AD808B0008C7891 /* Service */,
 				AF2F97472AD6D3C500A80CFE /* WeatherAppWidgetBundle.swift */,
-				AF2F975B2AD6DA9500A80CFE /* WeatherAppWidgetService.swift */,
 				AF2F97492AD6D3C500A80CFE /* WeatherAppWidgetLiveActivity.swift */,
 				AF2F974B2AD6D3C500A80CFE /* WeatherAppWidget.swift */,
 				AF2F974D2AD6D3C500A80CFE /* WeatherAppWidget.intentdefinition */,
@@ -174,6 +178,9 @@
 		AF5591DD2AD46DE7005A71C6 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				AFFF7D692AD80C59008C7891 /* View */,
+				AFFF7D662AD80C29008C7891 /* ViewModel */,
+				AFFF7D652AD80C09008C7891 /* Networking */,
 				AF6CD5162AD6F48800EAD371 /* WeatherApp.entitlements */,
 				AF5591DE2AD46DE7005A71C6 /* AppDelegate.swift */,
 				AF5591E02AD46DE7005A71C6 /* SceneDelegate.swift */,
@@ -181,14 +188,68 @@
 				AF5591E72AD46DEC005A71C6 /* Assets.xcassets */,
 				AF5591E92AD46DEC005A71C6 /* LaunchScreen.storyboard */,
 				AF5591EC2AD46DEC005A71C6 /* Info.plist */,
-				AF45EB3A2AD4774C006A51A0 /* WeatherMainViewController.swift */,
-				AF45EB3C2AD4779A006A51A0 /* WeatherDetailsViewController.swift */,
-				AF45EB3E2AD477C3006A51A0 /* ForecastViewCell.swift */,
-				AF0D18452AD58461004BC9A7 /* WeatherAPI.swift */,
-				AF0D18472AD58CE1004BC9A7 /* WeatherViewModel.swift */,
 				AF2F97212AD6C47C00A80CFE /* Localizable.strings */,
 			);
 			path = WeatherApp;
+			sourceTree = "<group>";
+		};
+		AFFF7D602AD808B0008C7891 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				AF2F975B2AD6DA9500A80CFE /* WeatherAppWidgetService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		AFFF7D612AD80967008C7891 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AFFF7D622AD8098E008C7891 /* WeatherResponce.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AFFF7D652AD80C09008C7891 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				AF0D18452AD58461004BC9A7 /* WeatherAPI.swift */,
+				AFFF7D612AD80967008C7891 /* Model */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		AFFF7D662AD80C29008C7891 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AF0D18472AD58CE1004BC9A7 /* WeatherViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AFFF7D672AD80C35008C7891 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AF45EB3A2AD4774C006A51A0 /* WeatherMainViewController.swift */,
+				AF45EB3C2AD4779A006A51A0 /* WeatherDetailsViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		AFFF7D682AD80C4E008C7891 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				AF45EB3E2AD477C3006A51A0 /* ForecastViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		AFFF7D692AD80C59008C7891 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AFFF7D682AD80C4E008C7891 /* Cell */,
+				AFFF7D672AD80C35008C7891 /* ViewController */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		C6E2E6500FD905F77C700895 /* Frameworks */ = {
@@ -358,8 +419,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF2F974C2AD6D3C500A80CFE /* WeatherAppWidget.swift in Sources */,
+				AFFF7D6A2AD8104E008C7891 /* WeatherAPI.swift in Sources */,
 				AF2F97512AD6D3CC00A80CFE /* WeatherAppWidget.intentdefinition in Sources */,
 				AF2F975C2AD6DA9500A80CFE /* WeatherAppWidgetService.swift in Sources */,
+				AFFF7D642AD80BD5008C7891 /* WeatherResponce.swift in Sources */,
 				AF2F97482AD6D3C500A80CFE /* WeatherAppWidgetBundle.swift in Sources */,
 				AF2F974A2AD6D3C500A80CFE /* WeatherAppWidgetLiveActivity.swift in Sources */,
 			);
@@ -375,6 +438,7 @@
 				AF0D18482AD58CE2004BC9A7 /* WeatherViewModel.swift in Sources */,
 				AF0D18462AD58462004BC9A7 /* WeatherAPI.swift in Sources */,
 				AF2F97522AD6D3CC00A80CFE /* WeatherAppWidget.intentdefinition in Sources */,
+				AFFF7D632AD8098E008C7891 /* WeatherResponce.swift in Sources */,
 				AF45EB3B2AD4774C006A51A0 /* WeatherMainViewController.swift in Sources */,
 				AF5591E12AD46DE7005A71C6 /* SceneDelegate.swift in Sources */,
 			);
